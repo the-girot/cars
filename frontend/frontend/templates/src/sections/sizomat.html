@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col">
+            <div class="input-group flex-nowrap my-2">
+                <span class="input-group-text" id="span barcode"
+                    >Штрих-код:</span
+                >
+                <input
+                    type="number"
+                    id="barcode"
+                    class="form-control"
+                    placeholder="Введите штрих-код"
+                    aria-label="Введите штрих-код"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+            <div class="d-grid gap-2 my-3">
+                <button class="btn btn-primary" onclick="loadsiz('is-invalid')" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Загрузить карточку СИЗ
+                </button>
+            </div>
+
+            <div class="row my-3">
+                <div class="col d-flex justify-content-center">
+                    <div class="input-group flex-nowrap my-2">
+                        <span class="input-group-text" id="span sizename"
+                            >Размер:</span
+                        >
+                        <input
+                            type="text"
+                            id="sizename"
+                            class="form-control"
+                            disabled="true"
+                            placeholder=""
+                            aria-label=""
+                            aria-describedby="addon-wrapping"
+                        />
+                    </div>
+                </div>
+                <div class="col d-flex align-items-stretch">
+                    <div class="container text-center align-self-center" id="balance">
+                        Остаток:
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+               <div class="d-flex align-items-center">
+                   <div class="d-flex">
+                       <button class="btn btn-primary" onclick="decrement()">-</button>
+                       <input
+                            class="form-control"
+                            type="text"
+                            value="1"
+                            id="countsiz"
+                        />
+                       <button class="btn btn-primary" onclick="increment()">+</button>
+                   </div>
+
+                  <button class="btn btn-success mx-2 flex-grow-1" type="button" onclick="replenishmentsizomattotable(); ">
+                    Добавить выдачу
+                  </button>
+                </div>
+            </div>
+        </div>
+
+    <div class="col">
+        <div class="overflow-y-scroll" style="height: 280px">
+        <table class="table" id="givesiztablesizomat">
+            <thead>
+                <tr>
+                    <th scope="col">СИЗ</th>
+                    <th scope="col">Размер</th>
+                    <th scope="col">Кол-во</th>
+                    <th scope="col">Действие</th>
+                </tr>
+            </thead>
+            <tbody id="output">
+
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-success m-2 w-100" type="button" onclick="clearstate(); replenishmentsizomat(); ">
+        Отправить
+      </button>
+    </div>
+</div>
+</div>
+

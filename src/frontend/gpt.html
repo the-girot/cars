@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оценка автомобиля</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            margin: 0 0 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00d8ff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #00b8d4;
+        }
+        .container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .container .privacy-policy {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .container .privacy-policy a {
+            color: #00d8ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Рассчитать стоимость автомобиля</h2>
+        <select>
+            <option>Выберите марку</option>
+            <option>Nissan</option>
+        </select>
+        <select>
+            <option>Выберите модель</option>
+            <option>GTR</option>
+        </select>
+        <select>
+            <option>Выберите год выпуска</option>
+            <option>2000</option>
+        </select>
+        <select>
+            <option>Выберите кузов</option>
+            <option>R35</option>
+        </select>
+        <select>
+            <option>Выберите кузов</option>
+            <option>2000</option>
+        </select>
+        <select>
+            <option>Выберите количество дверей</option>
+            <option>2</option>
+        </select>
+        <select>
+            <option>Выберите КПП</option>
+            <option>xxxxxxxxx</option>
+        </select>
+        <select>
+            <option>Выберите привод</option>
+            <option>Передний</option>
+        </select>
+        <select>
+            <option>Выберите двигатель</option>
+            <option>V8</option>
+        </select>
+        <select>
+            <option>Выберите объем</option>
+            <option>8</option>
+        </select>
+        <select>
+            <option>Выберите мощность</option>
+            <option>570 л. с.</option>
+        </select>
+        <select>
+            <option>Выберите поколение</option>
+            <option>Бумер</option>
+        </select>
+        <select>
+            <option>Город продажи</option>
+            <option>МСК</option>
+        </select>
+        <button>Оценить бесплатно</button>
+        <div class="privacy-policy">
+            <input type="checkbox" checked> Нажимая кнопку вы соглашаетесь с условиями <a href="#">Политики Конфиденциальности</a>
+        </div>
+    </div>
+</body>
+</html>

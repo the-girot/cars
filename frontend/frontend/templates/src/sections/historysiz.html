@@ -1,0 +1,312 @@
+<div class=" d-flex gap-2 justify-content-start flex-wrap" id="filters">
+    <div class="btn-group barcode">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn barcode"
+            onclick="addListenerOnInput(this)"
+        >
+            Штрих-код</button>
+        <ul class="dropdown-menu px-2" id="list barcode">
+            <li>
+                <input
+                    type="text"
+                    id="search-field barcode"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+
+    <div class="btn-group sizname">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn sizname"
+            onclick="addListenerOnInput(this)"
+        >
+            Название СИЗ</button>
+        <ul class="dropdown-menu px-2" id="list sizname">
+            <li>
+                <input
+                    type="text"
+                    id="search-field sizname"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+
+    <div class="btn-group typename">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn typename"
+            onclick="addListenerOnInput(this)"
+        >Тип СИЗ</button>
+        <ul class="dropdown-menu px-2" id="list typename">
+            <li>
+                <input
+                    type="text"
+                    id="search-field typename"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+
+    <div class="btn-group sizename">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn sizename"
+            onclick="addListenerOnInput(this)"
+        >Размер СИЗ</button>
+        <ul class="dropdown-menu px-2" id="list sizename">
+            <li>
+                <input
+                    type="text"
+                    id="search-field sizename"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+    <div class="btn-group date">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn date"
+            onclick="addListenerOnInput(this)"
+        >
+            Дата</button>
+        <ul class="dropdown-menu px-2" id="list date">
+            <li>
+                <input
+                    type="text"
+                    id="search-field date"
+                    class="form-control"
+                    placeholder="YYYY-MM-DD"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+
+    <div class="btn-group perno">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn perno"
+            onclick="addListenerOnInput(this)"
+        >
+            Табельный номер</button>
+        <ul class="dropdown-menu px-2" id="list perno">
+            <li>
+                <input
+                    type="text"
+                    id="search-field perno"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+    <div class="btn-group fio">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn fio"
+            onclick="addListenerOnInput(this)"
+        >
+            ФИО</button>
+        <ul class="dropdown-menu px-2" id="list fio">
+            <li>
+                <input
+                    type="text"
+                    id="search-field fio"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+    <div class="btn-group department">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn department"
+            onclick="addListenerOnInput(this)"
+        >
+            Должность</button>
+        <ul class="dropdown-menu px-2" id="list department">
+            <li>
+                <input
+                    type="text"
+                    id="search-field department"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+    <div class="btn-group chef">
+        <button
+            class="btn btn-outline-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="btn chef"
+            onclick="addListenerOnInput(this)"
+        >
+            Руководитель</button>
+        <ul class="dropdown-menu px-2" id="list chef">
+            <li>
+                <input
+                    type="text"
+                    id="search-field chef"
+                    class="form-control"
+                    aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                />
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+        </ul>
+    </div>
+    <div class="btn-group is_returned mw-100">
+        <button
+            type="button"
+            id="btn is_returned"
+            class="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            onclick="addListenerOnInput(this)"
+        >
+            Статус возврата</button>
+        <ul class="dropdown-menu" id="list is_returned">
+            <li><a class="dropdown-item" href="#">Вернул</a></li>
+            <li><a class="dropdown-item" href="#">Не вернул</a></li>
+        </ul>
+    </div>
+    <div class="btn-group is_on_group">
+        <button
+            type="button"
+            id="btn is_on_group"
+            class="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            onclick="addListenerOnInput(this)"
+        >
+            Статус группы</button>
+        <ul class="dropdown-menu" id="list is_on_group">
+            <li><a class="dropdown-item" href="#">На группу</a></li>
+            <li><a class="dropdown-item" href="#">Не на группу</a></li>
+        </ul>
+    </div>
+    <div class="btn-group is_on_duty">
+        <button
+            type="button"
+            id="btn is_on_duty"
+            class="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            onclick="addListenerOnInput(this)"
+        >
+            Статус дежурный</button>
+        <ul class="dropdown-menu" id="list is_on_duty">
+            <li><a class="dropdown-item" href="#">Дежурный</a></li>
+            <li><a class="dropdown-item" href="#">Не дежурный</a></li>
+        </ul>
+    </div>
+    <div class="btn-group limit">
+        <button
+            type="button"
+            id="btn limit"
+            class="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            onclick="addListenerOnInput(this)"
+        >
+            Строк на странице</button>
+        <ul class="dropdown-menu" id="list limit">
+            <li><a class="dropdown-item" href="#">25</a></li>
+            <li><a class="dropdown-item" href="#">50</a></li>
+            <li><a class="dropdown-item" href="#">100</a></li>
+        </ul>
+    </div>
+    <div class="flex-nowrap my-1 ">
+        <button
+            class="btn btn-success"
+            type="button"
+            onclick="getHistoryData()"
+        >
+            Отфильтровать
+        </button>
+        <button
+            class="btn btn-warning"
+            type="button"
+            onclick="clearfilters()"
+        >
+            Очистить фильтры
+        </button>
+
+    </div>
+    <div class="flex-nowrap m-1" id="pagination">
+        <button class="btn btn-primary" onclick="changePage(-1)">Предыдущая</button>
+        <span id="page-info">Страница 1</span>
+        <button class="btn btn-primary" onclick="changePage(1)">Следующая</button>
+    </div>
+</div>
+
+<div class="overflow-y-scroll" style="height: 720px">
+    <table class="table" id="restable">
+        <thead>
+            <tr>
+                <th scope="col">Штрихкод СИЗ</th>
+                <th scope="col">Название СИЗ</th>
+                <th scope="col">Тип СИЗ</th>
+                <th scope="col">Размер СИЗ</th>
+                <th scope="col">Дата выдачи СИЗ</th>
+                <th scope="col">Колво</th>
+                <th scope="col">Табельный номер получателя</th>
+                <th scope="col">ФИО получателя</th>
+                <th scope="col">Должность получателя</th>
+                <th scope="col">Руководитель</th>
+                <th scope="col">Вернул</th>
+                <th scope="col">На группу</th>
+                <th scope="col">Дежурный</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+    </table>
+
+</div>
+

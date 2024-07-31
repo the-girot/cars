@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <div class="row m-3">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping"
+                            >Название:</span
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Название"
+                            id="sizname"
+                            disabled="true"
+                            aria-label="Название"
+                            aria-describedby="addon-wrapping"
+                        />
+                    </div>
+                </div>
+                <div class="col">
+                <div class="col d-flex justify-content-center">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="span sizename"
+                            >Размер:</span
+                        >
+                        <input
+                            type="text"
+                            id="sizename"
+                            class="form-control"
+                            disabled="true"
+                            placeholder=""
+                            aria-label=""
+                            aria-describedby="addon-wrapping"
+                        />
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group flex-nowrap my-3">
+                        <span class="input-group-text" id="span barcode"
+                            >Штрих-код:</span
+                        >
+                        <input
+                            type="number"
+                            id="barcode"
+                            class="form-control"
+                            placeholder="Введите штрих-код"
+                            aria-label="Введите штрих-код"
+                            aria-describedby="addon-wrapping"
+                        />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group flex-nowrap my-3">
+                        <span class="input-group-text"
+                            >Количество:</span
+                        >
+                        <input
+                            type="number"
+                            id="count"
+                            class="form-control"
+                            placeholder="Введите количество"
+                            aria-label="Введите количество"
+                            aria-describedby="addon-wrapping"
+                        />
+                    </div>
+                </div>
+                <div class="d-grid gap-2 my-2 w-100">
+                    <button class="btn btn-primary" type="button" onclick="loadsiz('is-invalid'); loadsizaddmany(this);" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Загрузить карточку СИЗ
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+                    <div class="container overflow-y-scroll" style="height: 300px">
+                <table class="table" id="addmanytable">
+                    <thead >
+                        <tr>
+                            
+                            <th scope="col" >СИЗ</th>
+                            <th scope="col">Размер</th>
+                            <th scope="col">Кол-во</th>
+                            <th scope="col" data-checkbox="true">СИЗ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody" >
+
+                    </tbody>
+
+                </table>
+</div>
+
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col"></div>
+        <div class="col">
+            <div class="d-grid gap-2 my-2">
+                <button class="btn btn-dark" type="button" onclick="addtotable()">Внести СИЗ</button>
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+            <div class="d-grid gap-2 my-2">
+                <button class="btn btn-success" type="button" onclick="sendtodb()">
+                    Внести данные
+                </button>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

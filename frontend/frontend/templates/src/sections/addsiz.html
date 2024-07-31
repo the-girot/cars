@@ -1,0 +1,183 @@
+<div class="container-fluid">
+    <div class="row m-3">
+        <div class="col">
+            <div class=" d-flex gap-2 justify-content-start flex-nowrap" id="filters">
+                <div class="input-group flex-nowrap my-3 w-75">
+                    <span class="input-group-text"
+                        >Штрих-код:</span
+                    >
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="barcode"
+                        placeholder="Введите штрих-код"
+                        aria-label="Введите штрих-код"
+                        aria-describedby="addon-wrapping"
+                    />
+                </div>
+                <div class="d-grid gap-2 my-3 w-50">
+                    <button class="btn btn-primary" onclick="loadsiz('is-valid'); setvalidsiz()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Найти СИЗ
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col">
+                <div class="btn-group typename w-100">
+                    <button
+                        class="btn btn-outline-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        id="btn typename"
+                        onclick="addListenerOnInput(this)"
+                    >Тип СИЗ</button>
+                    <ul class="dropdown-menu px-2 w-100" id="list typename">
+                        <li>
+                            <input
+                                type="text"
+                                id="search-field typename"
+                                class="form-control text-center"
+                                aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                            />
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="btn-group typename w-100">
+                    <button
+                        class="btn btn-outline-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        id="btn sizename"
+                        onclick="addListenerOnInput(this)"
+                    >Размер</button>
+                    <ul class="dropdown-menu px-2 w-100" id="list sizename">
+                        <li>
+                            <input
+                                type="text"
+                                id="search-field typename"
+                                class="form-control text-center"
+                                aria-label="Ввод текста с помощью раскрывающейся кнопки"
+                            />
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                    </ul>
+                </div>
+            </div>
+           
+        </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text">Срок годности в месяцах:</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="shelftime"
+                    placeholder="Срок годности в месяцах"
+                    aria-label="Срок годности в месяцах"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text">Дата отсчета срока годности:</span>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="shelftimedatestart"
+                    placeholder="ДД.ММ.ГГГГ"
+                    aria-label="ДД.ММ.ГГГГ"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text"
+                    >Наименование СИЗ:</span
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="sizname"
+                    placeholder="Введите наименование СИЗ"
+                    aria-label="Введите наименование СИЗ"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text"
+                    >Производитель:</span
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="creator"
+                    placeholder="Введите производителя"
+                    aria-label="Введите производителя"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text"
+                    >Название в нормах:</span
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="standardname"
+                    placeholder="Введите название в нормах"
+                    aria-label="Введите название в нормах"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+            <div class="input-group flex-nowrap my-3">
+                <span class="input-group-text"
+                    >Количество:</span
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="total"
+                    placeholder="Введите количество"
+                    aria-label="Введите количество"
+                    aria-describedby="addon-wrapping"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col"></div>
+        <div class="col">
+            <div class="d-grid gap-2 my-2">
+                <button class="btn btn-danger" type="button" onclick="clearform()">Очистить</button>
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+            <div class="d-grid gap-2 my-2">
+                <button class="btn btn-dark" type="button" onclick="createnewsiz()" data-bs-toggle="modal" data-bs-target="#addsizmodal">Добавить СИЗ</button>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div class="modal fade" id="addsizmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel">Создание СИЗ</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="d-flex flex-column" id="newsiz"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
