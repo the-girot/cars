@@ -45,8 +45,16 @@ body {
 /* Изменение цвета стрелочки */
 .btn-group {
     position: relative;
+    background: #00C0ED;
     /* Для правильного позиционирования стрелки */
 }
+#btn_question {
+background: #2887fa;
+color: #fff;
+border-radius: 12px;
+}
+
+
 
 .dropdown-toggle::after {
     display: inline-block;
@@ -80,11 +88,20 @@ body {
 }
 
 label {
-    opacity: 50%;
+    opacity: 80%;
 }
 
 h2 {
     width: 212px;
     font-size: 28px;
     font-weight: 700;
+}
+
+
+.form_button{
+    height: 60px;
+    border: 0cm;
+    border-radius: 20px;
+    background-color: #00C0ED;
+    color: #fff;
 }

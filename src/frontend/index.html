@@ -19,11 +19,15 @@
       <h2 class="mx-4">Рассчитать стоимость автомобиля</h2>
     </div>
     <div class="row d-flex align-items-center justify-content-center">
+        <!-- Добавляем изображение здесь -->
+      <img src="./frontend/image.png" alt="Описание изображения" class="my-3">
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
     <div id="main__container" class="container center">
       <div class="container gap-3 center ">
         <div class="container p-0">
         <!-- <label for="form__body" class="form-label text-start w-100">1/12</label> -->
-        <div id="form__body" class="d-flex center justify-content-center border rounded-3 border-4 border-light">
+        <div id="form__body" class="d-flex center justify-content-center border rounded-3 border-4">
 
           <label for="question" class="form-label text-start w-100 " id="que_label">Выберите регион</label>
           <div class="btn-group w-100" id="question">
@@ -32,15 +36,14 @@
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              id="btn question"
-              style="background-color: #F4F6F8; border-radius: 16px;"
+              id="btn_question"
 
             >Регион</button>
             <ul class="dropdown-menu px-2 w-100 text-center" id="list-answer">
               <li>
                 <input
                   type="text"
-                  id="search-field question"
+                  id="search-field_question"
                   class="form-control"
                   aria-label="Ввод текста с помощью раскрывающейся кнопки"
                 />
@@ -59,7 +62,7 @@
         </div>
         </div>
       <div class="d-flex w-100 gap-5" id="buttons">
-        <button type="button" class="btn w-100" onclick="increment(); loadContent()" style="background-color: #2887fa; color: #fff">Начать</button>
+        <button type="button" class="btn w-100 form_button" onclick="increment(); loadContent()" >Начать</button>
       </div>
       </div>
     </div>
