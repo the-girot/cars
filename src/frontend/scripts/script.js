@@ -80,3 +80,24 @@ list_items.forEach((list_item) => {
         document.getElementById("btn_question").textContent = list_item.textContent;
     });
 });
+
+
+function getlistdata() {
+    fetch("api/sizhistory/getfiltersdata", {
+      method: "POST",
+    })
+        .then((response) => response.json())
+        .then((data) => {
+
+            // Здесь вы можете обработать полученные данные
+            Object.getOwnPropertyNames(data).forEach(key => {
+                let list = document.getElementById("list " + key);
+                Array.from(data[key]).forEach(value => {
+                    list.innerHTML += '<li><a class="dropdown-item">' + value + '</a></li>'
+                });
+
+            });
+        })
+        .catch((error) => console.error("Ошибка:", error));
+
+}
