@@ -140,6 +140,7 @@ function createlistitems(data) {
 }
 
 function get_final() {
+    
     fetch("frontend/final.html")
      .then(response => {
             if (!response.ok) {
@@ -148,9 +149,11 @@ function get_final() {
             return response.text();
         })
         .then(data => {
+            
             div = document.getElementById("main__container")
             div.innerHTML = data
-            document.getElementById("cars_h2").innerText = "Введите имя и номер телефона, чтобы получить бесплатную оценку"
+            get_simple_appr()
+
             // Обработайте данные ответа здесь
         })
         .catch(error => {
@@ -173,6 +176,34 @@ function get_simple_appr() {
     url.searchParams.append("brand", brand);
     url.searchParams.append("model", model);
     url.searchParams.append("creationYear", creationYear);
+
+    // Выполняем запрос
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            
+            if (Object.keys(data).length === 0)
+                document.getElementById("cars_h2").innerHTML ="Не можем найти информации об автомобиле. Для получения оценки свяжитесь с нашим менеджером" 
+            // Обработайте данные ответа здесь
+            else{
+                document.getElementById("cars_h2").innerText = "Свяжитесь с менеджером для выкупа автомобиля"
+                document.getElementById("resappr").innerHTML ="<p id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"</p>"
+            }
+                
+            // Обработайте данные ответа здесь
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+}
+
+function sendyes() {
     flag = false
     username = document.getElementById("exampleFormControlInput1").value
     phone = document.getElementById("exampleFormControlInput2").value
@@ -197,27 +228,8 @@ function get_simple_appr() {
          document.getElementById("errmess").innerText = "Введите корректный номер телефона"
          return
     }
-
-
-
-
-    // Выполняем запрос
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Response data:', data);
-            document.getElementById("main__container").innerHTML = "<p id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"</p>"
-            // Обработайте данные ответа здесь
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
+    document.getElementById("main__content").innerHTML = "yes"
+    
 }
-
 getlistdata()
 
