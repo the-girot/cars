@@ -1,120 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Number Formatter</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
 
-.container {
-    text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-#phone-input {
-    font-size: 18px;
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#error-message {
-    color: red;
-    margin-top: 10px;
-}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Phone Number Formatter</h2>
-        <input type="text" id="phone-input" placeholder="+7 (999) 999 99 99" maxlength="18">
-        <div id="error-message"></div>
+    <div class="container mt-5">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Имя</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput2" class="form-label">Номер телефона</label>
+  <input type="tel" class="form-control" id="exampleFormControlInput2" placeholder="">
+</div>
+<p id="errmess"></p>
     </div>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const phoneInput = document.getElementById('phone-input');
-    const errorMessage = document.getElementById('error-message');
-
-    phoneInput.addEventListener('input', formatPhoneNumber);
-    phoneInput.addEventListener('paste', handlePaste);
-
-    function formatPhoneNumber(event) {
-        let input = event.target.value.replace(/\D/g, '');
-        if (input.length > 11) input = input.slice(0, 11); // Ensure only the first 11 digits are used
-
-        let formatted = '+7 ';
-        if (input.length > 1) {
-            formatted += '(' + input.substring(1, 4);
-        }
-        if (input.length >= 5) {
-            formatted += ') ' + input.substring(4, 7);
-        }
-        if (input.length >= 8) {
-            formatted += ' ' + input.substring(7, 9);
-        }
-        if (input.length >= 10) {
-            formatted += ' ' + input.substring(9, 11);
-        }
-
-        event.target.value = formatted;
-        validatePhoneNumber(input);
-    }
-
-    function handlePaste(event) {
-        event.preventDefault();
-        let paste = (event.clipboardData || window.clipboardData).getData('text');
-        paste = paste.replace(/\D/g, ''); // Remove all non-digit characters
-        if (paste.startsWith('7')) paste = paste.substring(1); // Remove leading '7' if present
-
-        let current = phoneInput.value.replace(/\D/g, '');
-        let combined = current + paste;
-        if (combined.length > 11) combined = combined.slice(0, 11); // Ensure only the first 11 digits are used
-
-        phoneInput.value = formatFromDigits(combined);
-        validatePhoneNumber(combined);
-    }
-
-    function formatFromDigits(digits) {
-        let formatted = '+7 ';
-        if (digits.length > 0) {
-            formatted += '(' + digits.substring(0, 3);
-        }
-        if (digits.length >= 4) {
-            formatted += ') ' + digits.substring(3, 6);
-        }
-        if (digits.length >= 7) {
-            formatted += ' ' + digits.substring(6, 8);
-        }
-        if (digits.length >= 9) {
-            formatted += ' ' + digits.substring(8, 10);
-        }
-        return formatted;
-    }
-
-    function validatePhoneNumber(input) {
-        if (input.length === 11 && input.startsWith('7')) {
-            errorMessage.textContent = '';
-        } else {
-            errorMessage.textContent = 'Invalid phone number';
-        }
-    }
-});
+    <button type="submit" class="btn btn-primary border" style="background: #2887fa; color: #fff; border-radius: 12px;" onclick="get_simple_appr()">Оставить заявку</button>
+    </div>
 
 
-    </script>
-</body>
-</html>
+

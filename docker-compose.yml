@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   app:
-    build: src/Dockerfile
+    build: src\Dockerfile
     ports:
       - "8000:8000"
     

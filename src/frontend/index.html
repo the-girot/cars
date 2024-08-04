@@ -16,7 +16,7 @@
   <body>
     <div id="main__content" class="d-flex align-items-center flex-column">
     <div class="row d-flex align-items-center justify-content-center">
-      <h2 class="mx-4">Рассчитать стоимость автомобиля</h2>
+      <h2 class="mx-4" id="cars_h2">Рассчитать стоимость автомобиля</h2>
     </div>
     <div class="row d-flex align-items-center justify-content-center">
         <!-- Добавляем изображение здесь -->
@@ -43,7 +43,7 @@
               <li>
                 <input
                   type="text"
-                  id="search-field_question"
+                  id="search-field-question"
                   class="form-control"
                   aria-label="Ввод текста с помощью раскрывающейся кнопки"
                 />
@@ -51,18 +51,14 @@
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item">Бензин, 75 сил, V1.4</a></li>
-              <li><a class="dropdown-item">Хэтчбэк, 5 дверей/a></a></li>
-              <li><a class="dropdown-item">Бензин, 75 сил, V1.4</a></li>
-              <li><a class="dropdown-item">Седан, 1 дверь</a></li>
-              <li><a class="dropdown-item">123123</a></li>
+
 
             </ul>
           </div>
         </div>
         </div>
       <div class="d-flex w-100 gap-5" id="buttons">
-        <button type="button" class="btn w-100 form_button" onclick="increment(); loadContent()" >Начать</button>
+        <button type="button" class="btn w-100 form_button" onclick="set_choosed(); increment(); loadContent(); getlistdata(); prepare_list();  " >Начать</button>
       </div>
       </div>
     </div>
@@ -76,8 +72,11 @@
       crossorigin="anonymous"
 
     ></script>
-        <script  src="./frontend/scripts/script.js"></script>
     <script  src="./frontend/scripts/states.js"></script>
+        <script  src="./frontend/scripts/script.js">
+          
+        </script>
+
 
   </body>
 </html>
