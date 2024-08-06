@@ -227,32 +227,56 @@ function get_simple_appr() {
 }
 
 function sendyes() {
-    flag = false
-    username = document.getElementById("exampleFormControlInput1").value
-    phone = document.getElementById("exampleFormControlInput2").value
-    if (username === ""){
-        document.getElementById("errmess").innerText = "Введите все поля"
-        return
-    }
-    if (phone === ""){
-        document.getElementById("errmess").innerText = "Введите все поля"
-        return
+    // Инициализация флагов и получение значений из формы
+    const username = document.getElementById("exampleFormControlInput1").value;
+    const phone = document.getElementById("exampleFormControlInput2").value;
+
+    // Проверка на заполненность полей
+    if (username === "" || phone === "") {
+        document.getElementById("errmess").innerText = "Введите все поля";
+        return;
     }
 
-
+    // Функция для проверки валидности номера телефона
     function isValidPhoneNumber(phoneNumber) {
-    // Регулярное выражение для проверки номера телефона
-    const phoneRegex = /^\+?[1-9]\d{1,14}$/;
-
-    // Проверка номера телефона с помощью регулярного выражения
-    return phoneRegex.test(phoneNumber);
-}
-    if (isValidPhoneNumber(phone) !== true){
-         document.getElementById("errmess").innerText = "Введите корректный номер телефона"
-         return
+        // Регулярное выражение для проверки номера телефона
+        const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+        return phoneRegex.test(phoneNumber);
     }
-    document.getElementById("main__content").innerHTML = "yes"
-    
+
+    // Проверка на валидность номера телефона
+    if (!isValidPhoneNumber(phone)) {
+        document.getElementById("errmess").innerText = "Введите корректный номер телефона";
+        return;
+    }
+
+    // Формирование URL с параметром
+    const url = new URL('/sendtosalebot', window.location.origin);
+    url.searchParams.append('phone', phone);
+
+    // Отправка GET-запроса
+    fetch(url, {
+        method: 'GET'
+    })
+    .then(response => {
+        if (response.ok) {
+            // Обработка успешного ответа
+            document.getElementById("main__content").innerHTML = "yes";
+            console.log("Запрос успешно отправлен.");
+        } else {
+            // Обработка ошибки ответа
+            document.getElementById("errmess").innerText = "Ошибка при отправке данных";
+            console.error("Ошибка при отправке данных:", response.statusText);
+        }
+    })
+    .catch(error => {
+        // Обработка сетевых ошибок
+        document.getElementById("errmess").innerText = "Ошибка при отправке данных";
+        console.error("Ошибка при отправке данных:", error);
+    });
 }
+
+
+
 loadContent()
 
