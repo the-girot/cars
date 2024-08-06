@@ -19,10 +19,11 @@
 body {
     font-family: 'Geologica', sans-serif;
     height: 100vh;
-    margin: 0;
+    margin: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 500px;
 }
 .row{
     height: 100%;
@@ -53,6 +54,11 @@ background: #2887fa;
 color: #fff;
 border-radius: 12px;
 }
+#agreeCheckboxlabel{
+    font-weight: 250px;
+    font-size: 11px;
+    line-height: 13.75px;
+}
 
 
 
@@ -82,9 +88,14 @@ border-radius: 12px;
     align-items: center;
     text-align: center;
 }
+html {
+
+    max-width: 450px;
+}
 
 #form__body {
     width: 100%;
+
 }
 
 label {
@@ -104,4 +115,26 @@ h2 {
     border-radius: 20px;
     background-color: #00C0ED;
     color: #fff;
+}
+
+#resblock{
+    background-color: #F4F6F8;
+    border-radius: 10px;
+    height: 40px;
+}
+
+#picth4{
+    font-weight: 600;
+    font-size: 14px;
+}
+#pictp {
+    font-weight: 250;
+    font-size: 11px;
+
+}
+
+.icon {
+    height: 16px;
+    width: auto;
+    /* ширина будет пропорциональна высоте */
 }

@@ -1,22 +1,22 @@
 const states__ = [
-  {
-    "param": ["region",],
-    "attrs": [],
-    "que_label":"Выберите регион",
-    "btn_question":"Регион",
-    "buttons":'<button type="button" class="btn w-100 form_button" onclick="increment(); loadContent();    " >Начать</button>',
-    "requested_data":{},
-    "choosed":"",
-    "url":"regions",
+  // {
+  //   "param": ["region",],
+  //   "attrs": [],
+  //   "que_label":"Выберите регион",
+  //   "btn_question":"Регион",
+  //   "buttons":'<button type="button" class="btn w-100 form_button" onclick="increment(); loadContent();    " >Начать</button>',
+  //   "requested_data":{},
+  //   "choosed":"",
+  //   "url":"regions",'<button type="button" class="btn w-100 form_button" onclick=" decrement(); loadContent();  " >Назад</button>' 
     
-  },
+    
+  // },
   {
     "param": ["brand",],
     "attrs": [],
     "que_label":"Выберите марку",
     "btn_question":"Марка",
-    "buttons":'<button type="button" class="btn w-100 form_button" onclick=" decrement(); loadContent();  " >Назад</button>' 
-    +'<button type="button" class="btn w-100 form_button" onclick="increment(); loadContent(); " >Далее</button>',
+    "buttons":'<button type="button" class="btn w-100 form_button" onclick="increment(); loadContent(); " >Далее</button>',
     "requested_data":{},
     "choosed":"",
     "url":"brands",
@@ -38,7 +38,8 @@ const states__ = [
 
     "que_label":"Выберите дату производства",
     "btn_question":"Дата производства",
-    "buttons":'<button type="button" class="btn w-100 form_button" onclick=" get_final();" >Оценить бесплатно</button>',
+    "buttons":'<button type="button" class="btn w-100 form_button" onclick="decrement(); loadContent();   " >Назад</button>' 
+    +'<button type="button" class="btn w-100 form_button" onclick=" get_final();" >Оценить бесплатно</button>',
     "requested_data":{},
     "choosed":"",
     "url":"creationYears",

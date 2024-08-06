@@ -1,18 +1,28 @@
 
 
     <div class="container mt-5">
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Имя</label>
+<div class="form-floating mb-3">
+  
   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+  <label for="exampleFormControlInput1" >Имя</label>
 </div>
-<div class="mb-3">
-  <label for="exampleFormControlInput2" class="form-label">Номер телефона</label>
+<div class="form-floating mb-3">
+  
   <input type="tel" class="form-control" id="exampleFormControlInput2" placeholder="">
+  <label for="exampleFormControlInput2" >Номер телефона</label>
 </div>
 <p id="errmess"></p>
     </div>
-    <button type="submit" class="btn btn-primary border" style="background: #2887fa; color: #fff; border-radius: 12px;" onclick="sendyes()">Оставить заявку</button>
+    <button type="submit" class="btn border" style="background: #28E4F7; color: #fff; border-radius: 12px; width:95%; height: 65px;" onclick="sendyes()">Оставить заявку</button>
     </div>
+    <div class="mt-4 px-3">
+            <div class="form-check ">
+            <input class="form-check-input" type="checkbox" id="agreeCheckbox">
+            <label class="form-check-label text-start" for="agreeCheckbox" id="agreeCheckboxlabel">
+                Нажимая кнопку вы соглашаетесь с условиями <a href="#">Политики Конфиденциальности</a>
+            </label>
+        </div>
+        </div>
 
 
 

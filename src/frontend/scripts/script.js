@@ -76,6 +76,10 @@ function set_choosed() {
 
     // Update the 'choosed' property in the current state
     states__[step].choosed = ch;
+    try{
+        states__[step+1].requested_data = {}
+        states__[step+1].choosed = ""
+    }catch{}
 
     // Iterate over each parameter in the 'param' array of the current state
     states__[step].param.forEach(p => {
@@ -86,6 +90,7 @@ function set_choosed() {
         if (states__[step].requested_data[ch] && states__[step].requested_data[ch]["p"][p]) {
             // Set the item in localStorage
             localStorage.setItem(p, states__[step].requested_data[ch]["p"][p]);
+            localStorage.setItem(p+"name", ch)
         } else {
             console.warn('Data for', p, 'not found in requested_data');
         }
@@ -140,6 +145,9 @@ function createlistitems(data) {
 }
 
 function get_final() {
+    const brand_name = localStorage.getItem("brandname");
+    const model_name = localStorage.getItem("modelname");
+    const creationYear_name = localStorage.getItem("creationYearname");
     
     fetch("frontend/final.html")
      .then(response => {
@@ -149,6 +157,18 @@ function get_final() {
             return response.text();
         })
         .then(data => {
+            document.getElementById("pict").src =""
+            document.getElementById("cars_h2").classList.add("text-start")
+            document.getElementById("cars_h2").innerHTML = brand_name + ", " + model_name + ", " + creationYear_name
+            pictrow = document.getElementById("pictrow")
+            document.getElementById("pict").src = "./frontend/Frame 1.svg"
+
+
+            pictrow.innerHTML = 
+                '<label for="pict" class="form-label text-start" ><h4 class="mt-4" id="picth4">Как определяется стоимость </h4><p id="pictp">Средняя стоимость автомобиля равняется среднему значению от стоимости всех аналогичных автомобилей, попавших в выборку</p></label>' 
+                + pictrow.innerHTML
+                
+            
             
             div = document.getElementById("main__container")
             div.innerHTML = data
@@ -167,12 +187,13 @@ function get_simple_appr() {
     const brand = localStorage.getItem("brand");
     const model = localStorage.getItem("model");
     const creationYear = localStorage.getItem("creationYear");
+    console.log(model)
+
 
     console.log(regionId, brand, model, creationYear);
 
     // Формируем URL с параметрами
     const url = new URL("/get_apprasial", window.location.origin);
-    url.searchParams.append("regionId", regionId);
     url.searchParams.append("brand", brand);
     url.searchParams.append("model", model);
     url.searchParams.append("creationYear", creationYear);
@@ -187,14 +208,16 @@ function get_simple_appr() {
         })
         .then(data => {
             console.log('Response data:', data);
+            html = '<div class="d-flex align-items-center mt-0" id="resblock"><img src="./frontend/coins.svg" alt="Coins" class="icon"></img>'
             
             if (Object.keys(data).length === 0)
-                document.getElementById("cars_h2").innerHTML ="Не можем найти информации об автомобиле. Для получения оценки свяжитесь с нашим менеджером" 
+                html +="<h3 class='mx-4 text-start' id='res'>Недостаточно данных для онлайн оценки.</h3></div>" 
             // Обработайте данные ответа здесь
             else{
-                document.getElementById("cars_h2").innerText = "Свяжитесь с менеджером для выкупа автомобиля"
-                document.getElementById("resappr").innerHTML ="<p id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"</p>"
+                html +="<h3 class='mx-4 text-start' id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"</h3></div>"
             }
+            document.getElementById("resappr").innerHTML += html
+            
                 
             // Обработайте данные ответа здесь
         })
@@ -231,5 +254,5 @@ function sendyes() {
     document.getElementById("main__content").innerHTML = "yes"
     
 }
-getlistdata()
+loadContent()
 

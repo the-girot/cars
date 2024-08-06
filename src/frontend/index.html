@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="container center">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,13 +14,13 @@
     <link href="/static/style.css" rel="stylesheet">
   </head>
   <body>
-    <div id="main__content" class="d-flex align-items-center flex-column">
-    <div class="row d-flex align-items-center justify-content-center">
-      <h2 class="mx-4" id="cars_h2">Рассчитать стоимость автомобиля</h2>
-    </div>
+    <div id="main__content" class="d-flex align-items-center flex-column mx-2">
     <div class="row d-flex align-items-center justify-content-center" id="resappr">
+      <h2 class="mx-4 mt-5 mb-0" id="cars_h2">Рассчитать стоимость автомобиля</h2>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center" id="pictrow">
         <!-- Добавляем изображение здесь -->
-      <img src="./frontend/image.png" alt="Описание изображения" class="my-3">
+      <img src="./frontend/image.png" alt="Описание изображения" class="my-3" id="pict">
     </div>
     <div class="row d-flex align-items-center justify-content-center">
     <div id="main__container" class="container center">
@@ -29,7 +29,7 @@
         <!-- <label for="form__body" class="form-label text-start w-100">1/12</label> -->
         <div id="form__body" class="d-flex center justify-content-center border rounded-3 border-4">
 
-          <label for="question" class="form-label text-start w-100 " id="que_label">Выберите регион</label>
+          <label for="question" class="form-label text-start w-100 " id="que_label"></label>
           <div class="btn-group w-100" id="question">
             <button
               class="btn dropdown-toggle"
@@ -38,7 +38,7 @@
               aria-expanded="false"
               id="btn_question"
 
-            >Регион</button>
+            ></button>
             <ul class="dropdown-menu px-2 w-100 text-center" id="list-answer">
               <li>
                 <input

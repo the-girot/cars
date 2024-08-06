@@ -158,7 +158,7 @@ class TokenManager:
             return transformed
         return {}
 
-    def get_simple_apprasial(self, brand, regionId, model, creationYear):
+    def get_simple_apprasial(self, brand, model, creationYear, regionId=2491811):
         token = self.get_token()
         print(token)
         if token is None:
@@ -205,7 +205,9 @@ class TokenManager:
             # for year in years["years"]:
             #     transformed[year] = {"p": year}
             # return transformed
-            return {"min": min_, "max": max_}
+            tansformed_min = f"{min_:,}".replace(",", " ")
+            tansformed_max = f"{max_:,}".replace(",", " ")
+            return {"min": tansformed_min, "max": tansformed_max}
         print(response.url)
         return {}
 
