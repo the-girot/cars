@@ -120,7 +120,7 @@ h2 {
 #resblock{
     background-color: #F4F6F8;
     border-radius: 10px;
-    height: 40px;
+    min-height: 40px;
 }
 
 #picth4{
