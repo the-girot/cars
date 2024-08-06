@@ -261,14 +261,15 @@ function sendyes() {
     const data = {
         "phone": phone
     };
+    
 
     // Отправка POST-запроса
-    fetch('/sendtosalebot', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+    const url = new URL('/sendtosalebot', window.location.origin);
+    url.searchParams.append('phone', phone);
+
+    // Отправка GET-запроса
+    fetch(url, {
+        method: 'GET'
     })
     .then(response => {
         if (response.ok) {
