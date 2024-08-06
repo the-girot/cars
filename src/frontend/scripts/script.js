@@ -230,6 +230,7 @@ function sendyes() {
     // Инициализация флагов и получение значений из формы
     const username = document.getElementById("exampleFormControlInput1").value;
     const phone = document.getElementById("exampleFormControlInput2").value;
+    const agreeCheckbox = document.getElementById("agreeCheckbox").checked;
 
     // Проверка на заполненность полей
     if (username === "" || phone === "") {
@@ -250,13 +251,24 @@ function sendyes() {
         return;
     }
 
-    // Формирование URL с параметром
-    const url = new URL('/sendtosalebot', window.location.origin);
-    url.searchParams.append('phone', phone);
+    // Проверка состояния флажка
+    if (!agreeCheckbox) {
+        document.getElementById("errmess").innerText = "Вы должны согласиться с условиями Политики Конфиденциальности";
+        return;
+    }
 
-    // Отправка GET-запроса
-    fetch(url, {
-        method: 'GET'
+    // Создание объекта данных для отправки
+    const data = {
+        "phone": phone
+    };
+
+    // Отправка POST-запроса
+    fetch('/sendtosalebot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
     .then(response => {
         if (response.ok) {
@@ -275,6 +287,7 @@ function sendyes() {
         console.error("Ошибка при отправке данных:", error);
     });
 }
+
 
 
 
