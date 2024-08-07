@@ -1,9 +1,9 @@
 from typing import Optional
 
 import requests
-from cars_app.config import sale_url, templates, logging
+from cars_app.config import logging, sale_url, templates
 from cars_app.TokenManager import token_manager
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
@@ -59,10 +59,12 @@ async def get_gpt_page(request: Request):
 
 
 @app.get("/sendtosalebot")
-async def send_to_salebot(phone: str):
+async def send_to_salebot(
+    phone: str, username: str, brand: str, model: str, creationYear: str
+):
     # Логирование входящих данных
     logging.info(f"Получен запрос с номером телефона: {phone}")
-    
+
     # Параметры для запроса к внешнему API
     params = {
         "client_phone": phone,
@@ -71,10 +73,13 @@ async def send_to_salebot(phone: str):
 
     # Логирование параметров запроса
     logging.info(f"Отправляем запрос с параметрами: {params}")
+    url = sale_url + (
+        f"?username={username}&brand={brand}&model={model}&creationYear={creationYear}"
+    )
 
     try:
         # Отправка запроса к внешнему API
-        response = requests.post(sale_url, json=params)
+        response = requests.post(url, json=params)
         response.raise_for_status()  # Проверка на статус 4xx/5xx
         logging.info("Запрос успешно выполнен.")
         return {"message": "Запрос успешно отправлен."}

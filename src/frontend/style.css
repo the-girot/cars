@@ -122,3 +122,25 @@ h2 {
     padding-left: 0 !important;
     width: 100%;
 }
+
+#pictrow {
+    margin-bottom: 70px
+}
+
+#thankYouMessage {
+    
+    text-align: center;
+    background-color: #5CF7C4;
+    color: #000;
+    padding: 20px;
+    border-radius: 12px;
+    height: 200px;
+
+    font-size: 25px;
+
+}
+
+#thankYouMessage h4 {
+    font-size: 32px;
+    margin: 0;
+}

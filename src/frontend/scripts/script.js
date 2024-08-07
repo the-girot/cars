@@ -231,6 +231,10 @@ function sendyes() {
     const username = document.getElementById("exampleFormControlInput1").value;
     const phone = document.getElementById("exampleFormControlInput2").value;
     const agreeCheckbox = document.getElementById("agreeCheckbox").checked;
+        const brand = localStorage.getItem("brand");
+    const model = localStorage.getItem("model");
+    const creationYear = localStorage.getItem("creationYear");
+
 
     // Проверка на заполненность полей
     if (username === "" || phone === "") {
@@ -266,6 +270,10 @@ function sendyes() {
     // Отправка POST-запроса
     const url = new URL('/sendtosalebot', window.location.origin);
     url.searchParams.append('phone', phone);
+    url.searchParams.append('username', username);
+    url.searchParams.append("brand", brand);
+    url.searchParams.append("model", model);
+    url.searchParams.append("creationYear", creationYear);
 
     // Отправка GET-запроса
     fetch(url, {
@@ -274,7 +282,10 @@ function sendyes() {
     .then(response => {
         if (response.ok) {
             // Обработка успешного ответа
-            document.getElementById("main__content").innerHTML = "yes";
+            document.getElementById('main__container').classList.add("d-none");
+            
+            document.getElementById('thankYouMessage').classList.remove("d-none")
+            document.getElementById('thankYouMessage').classList.add("d-block")
             console.log("Запрос успешно отправлен.");
         } else {
             // Обработка ошибки ответа
