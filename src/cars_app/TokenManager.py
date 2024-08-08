@@ -1,8 +1,9 @@
-import time
 import pprint
+import time
+from collections import defaultdict
+
 import requests
 from cars_app.config import client_id, client_secret, url
-from collections import defaultdict
 
 
 class TokenManager:
@@ -53,7 +54,6 @@ class TokenManager:
 
     def get_regions(self):
         token = self.get_token()
-        print(token)
         if token is None:
             return None
 
@@ -87,7 +87,6 @@ class TokenManager:
 
     def get_brands(self):
         token = self.get_token()
-        print(token)
         if token is None:
             return None
 
@@ -95,12 +94,10 @@ class TokenManager:
         response = requests.get(
             "https://appraisal.api.cm.expert/v1/autocatalog/brands", headers=payload
         )
-        print(response.status_code)
         if response.status_code == 200:
             brands = response.json()
             transformed = {}
             for el in brands["brands"]:
-                print(el)
                 if transformed.get(el["text"]) is None:
                     transformed[el["text"]] = {}
                 if transformed[el["text"]].get("p") is None:
@@ -111,7 +108,6 @@ class TokenManager:
 
     def get_models(self, brand):
         token = self.get_token()
-        print(token)
         if token is None:
             return None
 
@@ -122,12 +118,10 @@ class TokenManager:
             headers=payload,
             params=params,
         )
-        print(response.status_code)
         if response.status_code == 200:
             brands = response.json()
             transformed = {}
             for el in brands["models"]:
-                print(el)
                 if transformed.get(el["text"]) is None:
                     transformed[el["text"]] = {}
                 if transformed[el["text"]].get("p") is None:
@@ -138,7 +132,6 @@ class TokenManager:
 
     def get_creationYears(self, brand, model):
         token = self.get_token()
-        print(token)
         if token is None:
             return None
 
@@ -149,7 +142,6 @@ class TokenManager:
             headers=payload,
             params=params,
         )
-        print(response.status_code)
         if response.status_code == 200:
             years = response.json()
             transformed = defaultdict(dict)
@@ -160,7 +152,6 @@ class TokenManager:
 
     def get_simple_apprasial(self, brand, model, creationYear, regionId=2491811):
         token = self.get_token()
-        print(token)
         if token is None:
             return None
         payload = {"accept": "application/json", "Authorization": token}
@@ -175,9 +166,7 @@ class TokenManager:
             headers=payload,
             params=params,
         )
-        # print(response.status_code)
-        # print(response.url)
-        # print(response.json())
+
         if response.status_code == 422:
             params = {
                 "brand": brand,
@@ -190,9 +179,7 @@ class TokenManager:
                 params=params,
             )
         if response.status_code == 200:
-            print(response.url)
             ans = response.json()
-            print(ans)
             try:
                 min_ = round(ans["correctedPriceCategories"]["middle"]["min"])
                 max_ = round(ans["correctedPriceCategories"]["middle"]["max"])
@@ -200,43 +187,10 @@ class TokenManager:
                 min_ = round(ans["priceCategories"]["middle"]["min"])
                 max_ = round(ans["priceCategories"]["middle"]["max"])
 
-            # years = response.json()
-            # transformed = defaultdict(dict)
-            # for year in years["years"]:
-            #     transformed[year] = {"p": year}
-            # return transformed
             tansformed_min = f"{min_:,}".replace(",", " ")
             tansformed_max = f"{max_:,}".replace(",", " ")
             return {"min": tansformed_min, "max": tansformed_max}
-        print(response.url)
         return {}
-
-    def get_generations(self, brand_id, model_id, creation_year):
-        pass
-
-    def get_bodies(self, brand_id, model_id, creation_year, generation):
-        pass
-
-    def get_gears(self, brand_id, model_id, creation_year, generation, body_id, doors):
-        pass
-
-    def get_drives(
-        self, brand_id, model_id, creation_year, generation, body_id, doors, gears
-    ):
-        pass
-
-    def get_engines(
-        self,
-        brand_id,
-        model_id,
-        creation_year,
-        generation,
-        body_id,
-        doors,
-        gears,
-        drives,
-    ):
-        pass
 
 
 token_manager = TokenManager()

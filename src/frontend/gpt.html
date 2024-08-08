@@ -49,8 +49,8 @@
                     <h5 class="modal-title" id="iframeModalLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <iframe src="http://girot.ru:8080/home" style="border:none; "></iframe>
+                <div class="modal-body" id="iframediv">
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
@@ -64,6 +64,12 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"
     ></script>
+    <script>
+        clientId = localStorage.getItem("clientId");
+        console.log(clientId)
+        console.log('<iframe src="http://girot.ru:8080/home'+"?clientId="+clientId +'" style="border:none; "></iframe>')
+        document.getElementById("iframediv").innerHTML = '<iframe src="http://girot.ru:8080/home'+"?clientId="+clientId +'" style="border:none; "></iframe>'
+    </script>
     
 
 </body>

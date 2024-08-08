@@ -77,6 +77,15 @@
       crossorigin="anonymous"
 
     ></script>
+        <script>
+        // Получаем client_id из данных, переданных сервером
+        const clientId = "{{ clientId }}";
+        
+        // Если client_id присутствует, сохраняем его в localStorage
+        if (clientId) {
+            localStorage.setItem("clientId", clientId);
+        }
+    </script>
     <script  src="./frontend/scripts/states.js"></script>
         <script  src="./frontend/scripts/script.js">
           

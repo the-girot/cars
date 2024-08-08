@@ -234,6 +234,7 @@ function sendyes() {
         const brand = localStorage.getItem("brand");
     const model = localStorage.getItem("model");
     const creationYear = localStorage.getItem("creationYear");
+    const clientId = localStorage.getItem("clientId");
 
 
     // Проверка на заполненность полей
@@ -262,9 +263,6 @@ function sendyes() {
     }
 
     // Создание объекта данных для отправки
-    const data = {
-        "phone": phone
-    };
     
 
     // Отправка POST-запроса
@@ -274,6 +272,7 @@ function sendyes() {
     url.searchParams.append("brand", brand);
     url.searchParams.append("model", model);
     url.searchParams.append("creationYear", creationYear);
+    url.searchParams.append("clientId", clientId);
 
     // Отправка GET-запроса
     fetch(url, {

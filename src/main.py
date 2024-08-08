@@ -15,8 +15,10 @@ app.mount("/scripts", StaticFiles(directory="./frontend/scripts"), name="scripts
 
 
 @app.get("/home")
-async def get_home_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def get_home_page(clientId: str, request: Request):
+    return templates.TemplateResponse(
+        "index.html", {"request": request, "clientId": clientId}
+    )
 
 
 @app.get("/price")
@@ -54,27 +56,27 @@ async def get_appr(
 
 
 @app.get("/")
-async def get_gpt_page(request: Request):
+async def get_gpt_page(request: Request, clientId: str = None):
     return templates.TemplateResponse("gpt.html", {"request": request})
 
 
 @app.get("/sendtosalebot")
 async def send_to_salebot(
-    phone: str, username: str, brand: str, model: str, creationYear: str
+    phone: str, username: str, brand: str, model: str, creationYear: str, clientId: str
 ):
     # Логирование входящих данных
     logging.info(f"Получен запрос с номером телефона: {phone}")
 
     # Параметры для запроса к внешнему API
     params = {
-        "client_phone": phone,
+        "client_id": clientId,
         "message": "rashcet",
     }
 
     # Логирование параметров запроса
     logging.info(f"Отправляем запрос с параметрами: {params}")
     url = sale_url + (
-        f"?username={username}&brand={brand}&model={model}&creationYear={creationYear}"
+        f"?username={username}&brand={brand}&model={model}&creationYear={creationYear}&userphone={phone}"
     )
 
     try:
