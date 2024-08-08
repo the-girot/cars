@@ -15,7 +15,7 @@ app.mount("/scripts", StaticFiles(directory="./frontend/scripts"), name="scripts
 
 
 @app.get("/home")
-async def get_home_page(clientId: str, request: Request):
+async def get_home_page( request: Request, clientId: str = None):
     return templates.TemplateResponse(
         "index.html", {"request": request, "clientId": clientId}
     )
