@@ -65,8 +65,11 @@
         crossorigin="anonymous"
     ></script>
     <script>
-        clientId = localStorage.getItem("clientId");
-        document.getElementById("iframediv").innerHTML = '<iframe src="https://girot.ru/home'+"?clientId="+clientId +'" style="border:none; "></iframe>'
+        const clientId = "{{ clientId }}";
+        if (clientId) {
+            localStorage.setItem("clientId", clientId);
+        }
+        document.getElementById("iframediv").innerHTML = '<iframe src="https://recarbot.ru/home'+"?clientId="+clientId +'" style="border:none; "></iframe>'
     </script>
     
 
