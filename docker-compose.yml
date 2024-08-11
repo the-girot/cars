@@ -4,5 +4,5 @@ services:
     context: .
     build: src/Dockerfile
     ports:
-      - "80080:8080"
+      - "8080:8080"
     
