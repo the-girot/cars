@@ -231,10 +231,10 @@ function sendyes() {
     const username = document.getElementById("exampleFormControlInput1").value;
     const phone = document.getElementById("exampleFormControlInput2").value;
     const agreeCheckbox = document.getElementById("agreeCheckbox").checked;
-        const brand = localStorage.getItem("brand");
-    const model = localStorage.getItem("model");
-    const creationYear = localStorage.getItem("creationYear");
     const clientId = localStorage.getItem("clientId");
+    const brand_name = localStorage.getItem("brandname");
+    const model_name = localStorage.getItem("modelname");
+    const creationYear_name = localStorage.getItem("creationYearname");
 
 
     // Проверка на заполненность полей
@@ -269,9 +269,9 @@ function sendyes() {
     const url = new URL('/sendtosalebot', window.location.origin);
     url.searchParams.append('phone', phone);
     url.searchParams.append('username', username);
-    url.searchParams.append("brand", brand);
-    url.searchParams.append("model", model);
-    url.searchParams.append("creationYear", creationYear);
+    url.searchParams.append("brand", brand_name);
+    url.searchParams.append("model", model_name);
+    url.searchParams.append("creationYear", creationYear_name);
     url.searchParams.append("clientId", clientId);
 
     // Отправка GET-запроса
