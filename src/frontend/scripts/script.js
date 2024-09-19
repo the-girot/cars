@@ -214,7 +214,7 @@ function get_simple_appr() {
                 html +="<h3 class='mx-4 text-start' id='res'>Недостаточно данных для онлайн оценки.</h3></div>" 
             // Обработайте данные ответа здесь
             else{
-                html +="<h3 class='mx-4 text-start' id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"</h3></div>"
+                html +="<h3 class='mx-4 text-start' id='res'>"+ "От " + data["min"] +" до "+ data["max"] +"руб.</h3></div>"
             }
             document.getElementById("resappr").innerHTML += html
             
